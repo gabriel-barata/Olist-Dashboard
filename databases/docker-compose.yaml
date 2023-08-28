@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  olist-app-db:
+    image: mysql:8.1.0
+    container_name: olist-mysql-database
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: olist
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+      - ./data:/var/lib/mysql-files/olist_csv
+
+  olist-dw-instance:
+      image: postgres:14.3-alpine
+      container_name: olist-warehouse-instance
+      environment:
+        POSTGRES_PASSWORD: daniella
