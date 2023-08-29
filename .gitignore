@@ -2,3 +2,4 @@
 /.idea
 database/mysql-source/
 database/data/
+airflow/logs/*
