@@ -11,7 +11,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ./volumes/mysql:/var/lib/mysql
+      - ./mysql-source:/var/lib/mysql
       - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
       - ./data:/var/lib/mysql-files/olist_csv
 
@@ -20,3 +20,5 @@ services:
       container_name: olist-warehouse-instance
       environment:
         POSTGRES_PASSWORD: daniella
+      ports:
+        - '5433:5432'
