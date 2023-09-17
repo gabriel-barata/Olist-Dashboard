@@ -1,1 +1,0 @@
-astro-sdk-python==1.6.2
