@@ -2,4 +2,5 @@
 /.idea
 database/mysql-source/
 database/data/
-airflow/logs/*
+database/postgres-target/
+src/logs/
